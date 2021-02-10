@@ -4,20 +4,21 @@ import browser.BrowserGetter;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.TestInstance;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
-//s@TestInstance(PER_CLASS)
+
+@TestInstance(PER_CLASS)
 public class seleniumDemo {
-    private static WebDriver driver;
-   // private static BrowserGetter browserGetter;
-    private static final BrowserGetter browserGetter = new BrowserGetter();
-   // private WebDriver driver;
+    private WebDriver driver;
+    private final BrowserGetter browserGetter = new BrowserGetter();
 
 
     @BeforeAll
-    static void beforeAll(){
+    public void beforeAll(){
         driver = browserGetter.getChromeDriver();
     }
 
